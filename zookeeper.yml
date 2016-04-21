@@ -1,0 +1,8 @@
+zookeeper:
+  container_name: zookeeper
+  image: mesoscloud/zookeeper:3.4.6-ubuntu-14.04
+  net: host
+  restart: always
+  environment:
+   - MYID=1
+   - SERVERS:$MASTER_EC2_INTERNAL

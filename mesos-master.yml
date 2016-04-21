@@ -1,0 +1,13 @@
+mesos-master:
+  container_name: master
+  image: mesoscloud/mesos-master:0.24.1-ubuntu-14.04
+  net: host
+  restart: always
+  environment:
+   - MESOS_HOSTNAME=$MASTER_EC2_INTERNAL
+   - MESOS_IP=$MASTER_EC2_INTERNAL 
+   - MESOS_ZK=zk://$MASTER_EC2_INTERNAL:2181/mesos
+   - MESOS_LOG_DIR=/var/log/mesos
+   - MESOS_QUORUM=1
+#    - MESOS_REGISTRY=in_memory
+   - MESOS_WORK_DIR=/var/lib/mesos
